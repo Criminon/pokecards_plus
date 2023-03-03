@@ -371,9 +371,14 @@ else if ((mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+spr
 					}
 					else if ob_event.event_space_id[i].occupy_id != -1 && reference_id = ob_event && ob_event.event_kind != ref_event_tribute && ob_event.event_kind != ref_event_sacrifice
 					{
-						ob_event.event_space_id[i].occupy_id.card_played = false;
-						instance_position(ob_event.event_space_id[i].occupy_id.x,ob_event.event_space_id[i].occupy_id.y,ob_card_space).occupy_id=-1;
-						ob_event.evolution_retry=false;
+						
+						
+						with (ob_event.event_space_id[i].occupy_id) // resets card that is in the space. acts like its been clicked
+						{
+							card_played=false;
+							ob_card_space.occupy_id=-1;
+							ob_event.evolution_retry=false;
+						}
 						ob_event.used = true;
 						card_played=true;
 						potential_x=ob_event.event_space_id[i].x;

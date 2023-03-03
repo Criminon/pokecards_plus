@@ -129,7 +129,7 @@ if card_focus!=-1 and card_focus.card_cat=0 and card_focus_hand!=-1 and card_hol
 			//
 			var imaginary_penalty_atk=0, imaginary_penalty_def=0;
 			if sc_glyph_check(card_focus,ref_glyph_debilitate,true) { imaginary_penalty_atk=1; } //glyph: debilitate
-			if sc_glyph_check(card_focus,ref_glyph_ruthless,true) { imaginary_penalty_def=2; } //glyph: ruthless
+			if sc_glyph_check(card_focus,ref_glyph_ruthless,true) { imaginary_penalty_def= card_focus.card_def; } //glyph: ruthless
 			//
 			var vs_atk=card_space_id[i].occupy_id.card_atk-imaginary_penalty_atk;
 			var vs_def=card_space_id[i].occupy_id.card_def-imaginary_penalty_def;

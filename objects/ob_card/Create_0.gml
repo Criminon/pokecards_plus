@@ -342,7 +342,7 @@ else
 			card_innate=reference_id.create_card_innate;
 			card_shiny=reference_id.create_card_shiny;
 			card_holo=reference_id.create_card_holo;
-			//card_delta_type=reference_id.create_card_delta_type;
+			card_delta_type=reference_id.create_card_delta_type;
 			card_delta=reference_id.create_card_delta;
 			card_type_a=reference_id.create_card_type_a;
 			card_type_b=reference_id.create_card_type_b;

@@ -238,8 +238,8 @@ event_card_weight[event_card_group_stage_3] = 100; //100
 
 shiny_chance = 10; // out of 8192
 shinycharm_chance = 400;
-delta_chance = 9999 // out of 8192
-animate_chance = 10 // out of 8192
+delta_chance = 100 // out of 8192
+//animate_chance = 10 // out of 8192
 
 // Chance in 100 to be added to possible common selection
 event_card_addition_chance[event_card_type_pseudo] = 50;
@@ -262,7 +262,7 @@ event_cost[ref_event_megaevolve]=500;
 event_cost[ref_event_shinycharm]=3000;
 event_cost[ref_event_skip]=0;
 event_cost[ref_event_delta]=1000;
-event_cost[ref_event_holo_freecard]=800;
+event_cost[ref_event_holo_freecard]=0;
 event_cost[ref_event_cardpack_0]=5000;
 event_cost[ref_event_cardpack_1]=300;
 event_cost[ref_event_cardpack_2]=300;
@@ -307,6 +307,7 @@ tooltip_lines=0;
 #macro ref_glyph_underdog 20
 #macro ref_glyph_bless 21
 #macro ref_glyph_adversity 22
+#macro ref_glyph_wealth 23
 //
 #macro ref_glyph_mist 100
 #macro ref_glyph_transform 101
@@ -339,8 +340,8 @@ ref_glyph_img[18] = 28;
 ref_glyph_img[19] = 30;
 ref_glyph_img[20] = 31;
 ref_glyph_img[21] = 24;
-ref_glyph_img[22] = 32;
-ref_glyph_img[23] = 32; //placeholder
+ref_glyph_img[22] = 32; //Adversity
+ref_glyph_img[23] = 33; //Wealth
 ref_glyph_img[24] = 32; //placeholder
 ref_glyph_img[25] = 32; //placeholder
 ref_glyph_img[26] = 32; //placeholder
@@ -505,6 +506,7 @@ savedata[5] = "config_pcl++5.sav";
 
 //#macro ob_main.saveconf[ob_main.savestate] "config_pcl++.sav"
 //#macro ob_main.savedata[ob_main.savestate] "data_pcl++.sav"
+sc_state_load();
 sc_config_load();
 sc_config_save();
 sc_data_load();

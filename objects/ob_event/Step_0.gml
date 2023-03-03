@@ -199,12 +199,13 @@ if (apply_event) {
 			}
 		break;
 		case ref_event_evolution:
+			var dupemax = 2;
 			if (card_id_in_space[0] != -1)
 			{
 				var duplicate = 0;
 				var i = 0;
 				for (var i=0; i<ob_main.maindeck_total; i++;) {
-					var dupemax = 2;
+					
 					if (ob_main.main_card_id[i] = card_id_in_space[0].card_evo[0] && card_id_in_space[0].in_deck = true && ob_main.option_state[opt_challenge] != ch_unlimited)
 
 					{
@@ -231,6 +232,14 @@ if (apply_event) {
 						if(!free){sc_card_effect(event_space_id[0].x, event_space_id[0].y, 0, false, true);}
 				        with (card_id_in_space[0])
 				        {
+							if card_form_value < 500
+							{
+								card_form_value = irandom_range(500,1000);								
+							}
+							else if card_form_value > 499
+							{
+								card_form_value = irandom_range(1,499);
+							}
 				            sc_pokelist();
 							if card_delta = true
 							{
@@ -239,8 +248,8 @@ if (apply_event) {
 				            sc_card_level_stats_all(true, true);
 				        }
 						targetcard = card_id_in_space[0];
-						sc_check_innate(ref_glyph_taunt,"card_has_taunt");
-						sc_check_innate(ref_glyph_rush,"card_has_rush");
+						sc_adjust_innate_glyph(ref_glyph_taunt,"card_has_taunt");
+						sc_adjust_innate_glyph(ref_glyph_rush,"card_has_rush");
 						card_id_in_space[0] = targetcard;
 						event_applied = true;
 				        evolution_retry = true;
@@ -293,8 +302,8 @@ if (apply_event) {
 			        }
 						
 					targetcard = card_id_in_space[0];
-					sc_check_innate(ref_glyph_taunt,"card_has_taunt");
-					sc_check_innate(ref_glyph_rush,"card_has_rush");
+					sc_adjust_innate_glyph(ref_glyph_taunt,"card_has_taunt");
+					sc_adjust_innate_glyph(ref_glyph_rush,"card_has_rush");
 					card_id_in_space[0] = targetcard;				
 			        event_applied = true;
 			        evolution_retry = true;
@@ -402,8 +411,8 @@ if (apply_event) {
 			        }
         						
 					targetcard = card_id_in_space[0];
-					sc_check_innate(ref_glyph_taunt,"card_has_taunt");
-					sc_check_innate(ref_glyph_rush,"card_has_rush");
+					sc_adjust_innate_glyph(ref_glyph_taunt,"card_has_taunt");
+					sc_adjust_innate_glyph(ref_glyph_rush,"card_has_rush");
 					card_id_in_space[0] = targetcard;
 					//if(!free){ob_main.event_cost_standby += ob_main.event_cost[ref_event_evolution];
 			       // sc_playsound(sn_upgrade, 50, false, false);}

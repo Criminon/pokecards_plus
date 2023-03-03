@@ -9,10 +9,12 @@ if mouse_x>=(screen_main_x+(cam_w/2)-35) and mouse_y>= (screen_main_y+cam_h-50) 
 		if mouse_check_button_pressed(mb_left){
 			savestate++;
 			if savestate>4 { savestate = 0; }
+			sc_state_save();
 		}
 		else if mouse_check_button_pressed(mb_right){
 			savestate--;
 			if savestate<0 { savestate = 4; }
+			sc_state_save();
 		}
 	}
 }	
@@ -21,6 +23,7 @@ else if (mouse_check_button_pressed(mb_any) or keyboard_check_pressed(vk_anykey)
 	set = true
 	with (ob_main)
 	{
+		sc_state_save();
 		sc_config_load();
 		sc_data_load();
 		audio_sound_gain(ms_main,(option_state[opt_music]/100),0);
@@ -28,7 +31,8 @@ else if (mouse_check_button_pressed(mb_any) or keyboard_check_pressed(vk_anykey)
 		event_transition=ref_mainmenu;
 	}
 	
-}				
+}		
+
 	
 
 

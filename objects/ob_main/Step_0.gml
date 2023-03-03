@@ -53,7 +53,7 @@ if !instance_exists(ob_splash) and sc_music_sync()=true {
 }
 
 //————————————————————————————————————————————————————————————————————————————————————————————————————
-if option_state[opt_challenge]=ch_resolution || option_state[opt_challenge]=ch_swiftness{ roadmap_road_max=roadmap_road_max_resolution; }
+if option_state[opt_challenge]=ch_resolution || option_state[opt_challenge]=ch_swiftness || ob_main.newgameplus = true{ roadmap_road_max=roadmap_road_max_resolution; }
 else { roadmap_road_max=roadmap_road_max_normal; }
 //
 if area_zone=area_zone_max and zone_first_lap=true { roadmap_current_max=roadmap_road_max; } ///check this
@@ -842,7 +842,7 @@ if roadmap_get_details=true {
 			else if event_kind[ii][i]=ref_event_candy { event_name[ii][i]="Rare Candy"; }
 			else if event_kind[ii][i]=ref_event_shinycharm { event_name[ii][i]="Shiny Charm\n$" + string(event_cost[ref_event_shinycharm]);}
 			else if event_kind[ii][i]=ref_event_skip { event_name[ii][i]="Skip"; }
-			else if event_kind[ii][i]=ref_event_holo_freecard { event_name[ii][i]="Holo!\n$" + string(event_cost[ref_event_holo_freecard]); }
+			else if event_kind[ii][i]=ref_event_holo_freecard { event_name[ii][i]="Free Holo!"; }
 			else if event_kind[ii][i]=ref_event_coin { event_name[ii][i]="New Coin!"; }		
 			else if event_kind[ii][i]=ref_event_delta { event_name[ii][i]="Delta!\n$" + string(event_cost[ref_event_delta]);}			
 			else if event_kind[ii][i]=ref_event_cardpack { event_name[ii][i]="Card Pack\n$" + string(event_cost[ref_event_cardpack]); }
@@ -1537,6 +1537,7 @@ if button_exit_game!=-1 {
 if button_reset_config!=-1 {
 	if button_reset_config.button_state>=1 {
 		if file_exists(ob_main.saveconf[ob_main.savestate]) { file_delete(ob_main.saveconf[ob_main.savestate]); }
+		sc_state_load();
 		sc_config_load();
 		sc_config_save();
 		//
@@ -1556,17 +1557,18 @@ if button_delete_data!=-1 {
 draw_set_font(fn_matchup);
 //
 
-//if mouse_x>=(screen_main_x-86) and mouse_y>= (screen_main_y+25) and mouse_x<=(screen_main_x) and mouse_y<=(screen_main_y+40) {
+if mouse_x>=(screen_main_x-86) and mouse_y>= (screen_main_y+25) and mouse_x<=(screen_main_x) and mouse_y<=(screen_main_y+40) {
 
-//	if mouse_check_button_pressed(mb_left){
-//		sc_config_save();
-//		sc_data_save(false);
-//		sc_data_save(true);
-//		audio_sound_gain(ms_main,(option_state[opt_music]/100),0);
-//		audio_sound_gain(ms_league,(option_state[opt_music]/100),0);
-//		game_restart();
-//	}
-//}	
+	if mouse_check_button_pressed(mb_left){
+		sc_state_save();
+		sc_config_save();
+		sc_data_save(false);
+		sc_data_save(true);
+		audio_sound_gain(ms_main,(option_state[opt_music]/100),0);
+		audio_sound_gain(ms_league,(option_state[opt_music]/100),0);
+		game_restart();
+	}
+}	
 
 var i=0;
 repeat (options_total) {

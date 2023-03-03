@@ -1,4 +1,4 @@
-function sc_check_innate(argument0, argument1) {
+function sc_adjust_innate_glyph(argument0, argument1) {
     ///argument0 = ref_glyph
     ///argument1 = variable identifier. IE card_has_rush
     

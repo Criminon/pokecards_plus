@@ -84,7 +84,10 @@ with (argument1) {
 					}
 					if sc_glyph_check(id,ref_glyph_underdog,true) && card_target.card_hp > card_hp { damage_extra_dealt+=2; } //glyph: underdog
 					if sc_glyph_check(id,ref_glyph_bless,true) { damage_extra_dealt+= 1; } //glyph: bless
-					if sc_glyph_check(id,ref_glyph_rush,true) && ob_control.turn_num <= 2 { damage_extra_dealt+= ceil((card_atk*1.5)-card_atk) } //glyph: rush
+					if sc_glyph_check(id,ref_glyph_rush,true) && ob_control.turn_num <= 2 { damage_extra_dealt+= ceil((card_atk*1.1)-card_atk); } //glyph: rush
+					if sc_glyph_check(id,ref_glyph_wealth,true) && card_cost_total = 1 { damage_extra_dealt+= 1; } //glyph: wealth
+					else if sc_glyph_check(id,ref_glyph_wealth,true) && card_cost_total = 2 { damage_extra_dealt+= 2; } //glyph: wealth
+					else if sc_glyph_check(id,ref_glyph_wealth,true) && card_cost_total = 3 { damage_extra_dealt+= 5; } //glyph: wealth
 				//damage_dealt+=damage_extra_dealt;
 				if sc_glyph_check(card_target,ref_glyph_taunt,true) && (card_target.card_hp = card_target.card_full_hp) && (card_target.card_full_hp != 1 ) && (card_target.card_hp-damage_dealt <= 0)
 				{
@@ -103,9 +106,9 @@ with (argument1) {
 				//
 				if sc_glyph_check(card_target,ref_glyph_counter,true) { //glyph: counterattack
 					var damage_num_id=instance_create_layer(x+29,y+18,"instances",ob_damage_num);
-					if card_hp-(damage_dealt-damage_extra_dealt)>0 { //bonus damage not included
+					if card_hp-(damage_dealt)>0 { //bonus damage not included
 						damage_num_id.damage_num=damage_dealt-damage_extra_dealt;
-						card_hp-=damage_dealt-damage_extra_dealt;
+						card_hp-=damage_dealt;
 					}
 					else {
 						damage_num_id.damage_num=card_hp-1;

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "sc_check_innate",
+  "name": "sc_adjust_innate_glyph",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

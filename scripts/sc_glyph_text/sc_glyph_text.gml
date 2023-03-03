@@ -27,6 +27,7 @@ if argument1=false {
 		case ref_glyph_underdog: return		"// UNDERDOG //\nIncreases damage against higher HP foes."; break;
 		case ref_glyph_bless: return		"// BLESS //\nIncreases damage done by 1."; break;
 		case ref_glyph_adversity: return	"// ADVERSITY //\nIncreases damage done by 3 while exhausted."; break;
+		case ref_glyph_wealth: return	    "// WEALTH //\nDeals increased damage based on personal\nberry cost."; break;
 		//
 		case ref_glyph_mist: return			"// MIST // INNATE GLYPH\nWhile this card is active, Glyphs have\nno effect."; break;
 		case ref_glyph_transform: return	"// TRANSFORM // INNATE GLYPH\nTransforms into the opposing enemy Pokemon."; break;
@@ -40,6 +41,7 @@ if argument1=false {
 else {
 	switch (argument0) {
 		//case ref_glyph_picky: return 3; break;
+		case ref_glyph_wealth: return 3; break;
 		case ref_glyph_determination: return 3; break;
 		case ref_glyph_mist: return 3; break;
 		case ref_glyph_adaptability: return 3; break;

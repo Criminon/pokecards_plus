@@ -1,16 +1,16 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function sc_determine_card_delta(){
+	
+	if card_delta_type = -1 {
 	randomize();
 	var roll = irandom_range(1,1000);
 	if roll < 20
 	{
 		card_holo = true;
 	}
-	var roll2 = irandom_range(1,10)
-	var rollmax = 2;
-	
-	if card_delta_type = -1 {
+	var roll2 = irandom_range(1,10);
+	var rollmax = 1;
 		
 		if (card_type_b = -1 or (roll2 > rollmax)){  // checks if Pokemon is a dual type
 			// water, ice, steel, normal, dragon, ghost 
@@ -108,7 +108,6 @@ function sc_determine_card_delta(){
 							card_delta_type = choose (02,07,08,06,09);
 						}
 						//card_delta_type = 21;
-
 		}
 		
 			
