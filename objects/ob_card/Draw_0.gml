@@ -354,7 +354,7 @@ else
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 else if card_cat=1 and card_face=true and in_view=true {
 	var card_color=c_white;
-	if reference_id=ob_deckbuild and mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height { card_color=global.color_gray; }
+	if reference_id=ob_deckbuild and (mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<x+sprite_width and mouse_y<y+sprite_height { card_color=global.color_gray; }
 	//
 	draw_sprite_general(sp_sheet,0,16*9+4,16*0,sprite_width,sprite_height,draw_x,draw_y,1,1,0,card_color,card_color,card_color,card_color,1);
 	draw_sprite_general(sp_sheet,0,16*1,16*2,53,10,draw_x+2,draw_y+41,1,1,0,

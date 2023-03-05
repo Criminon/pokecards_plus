@@ -7,7 +7,7 @@ if (trash) {
 // If we are in an event.
 if (instance_exists(ob_event))
 {
-    if (mouse_x >= x + 4 && mouse_y >= y + 4 && mouse_x < x + sprite_width - 4 && mouse_y < y + sprite_height - 4)
+    if ((mouse_x * ob_main.option_state[opt_scaling]) >= x + 4 && mouse_y >= y + 4 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width - 4 && mouse_y < y + sprite_height - 4)
     {
         var var_event_alpha = 1;
     }

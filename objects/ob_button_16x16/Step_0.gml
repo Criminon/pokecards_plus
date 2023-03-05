@@ -1,7 +1,7 @@
 if (instance_exists(ob_control) && button_id == 2)
 {
     // exit battle
-    if (mouse_x >= x && mouse_y >= y + 2 && mouse_x < x + sprite_width && mouse_y < y + sprite_height - 2 && ob_main.mouse_cursor == 0 && ob_control.battler_turn != 0)
+    if ((mouse_x * ob_main.option_state[opt_scaling]) >= x && mouse_y >= y + 2 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width && mouse_y < y + sprite_height - 2 && ob_main.mouse_cursor == 0 && ob_control.battler_turn != 0)
     {
         ob_main.mouse_cursor = 1;
         
@@ -36,7 +36,7 @@ if (instance_exists(ob_control) && button_id == 2)
     }
     ob_main.fade_black_exit = button_state;
     
-    if (ob_main.cursor_hide == false && mouse_x >= x && mouse_y >= y + 2 && mouse_x < x + sprite_width && mouse_y < y + sprite_height - 2)
+    if (ob_main.cursor_hide == false && (mouse_x * ob_main.option_state[opt_scaling]) >= x && mouse_y >= y + 2 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width && mouse_y < y + sprite_height - 2)
     {
         ob_control.tooltip_text = "Declare stalemate / exit battle (hold).";
         ob_control.tooltip_lines = 1;
@@ -47,7 +47,7 @@ if (instance_exists(ob_control) && button_id == 2)
 
 // Auto-attack
 if (instance_exists(ob_control) && button_id == 4) { 
-	if (mouse_x >= x && mouse_y >= y + 2 && mouse_x < x + sprite_width && mouse_y < y + sprite_height - 2 && ob_main.mouse_cursor == 0) {
+	if ((mouse_x * ob_main.option_state[opt_scaling]) >= x && mouse_y >= y + 2 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width && mouse_y < y + sprite_height - 2 && ob_main.mouse_cursor == 0) {
 		ob_main.mouse_cursor=1;
 		
 		if (mouse_check_button(mb_left) && ob_main.cursor_hide == false)
@@ -68,7 +68,7 @@ if (instance_exists(ob_control) && button_id == 4) {
 		button_state = 0; 
 	}
 	
-	if (ob_main.cursor_hide == false && mouse_x >= x && mouse_y >= y + 2 && mouse_x < x + sprite_width && mouse_y < y + sprite_height - 2)
+	if (ob_main.cursor_hide == false && (mouse_x * ob_main.option_state[opt_scaling]) >= x && mouse_y >= y + 2 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width && mouse_y < y + sprite_height - 2)
 	{
 	    ob_control.tooltip_text = "Attack with all cards (hold).";
 	    ob_control.tooltip_lines = 1;
@@ -80,7 +80,7 @@ if (instance_exists(ob_control) && button_id == 4) {
 // exit game & delete save data
 if (button_id == 100 || button_id == 102)
 {
-	if (mouse_x >= x && mouse_y >= y + 2 && mouse_x < x + sprite_width && mouse_y < y + sprite_height - 2 && ob_main.mouse_cursor == 0)
+	if ((mouse_x * ob_main.option_state[opt_scaling]) >= x && mouse_y >= y + 2 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width && mouse_y < y + sprite_height - 2 && ob_main.mouse_cursor == 0)
 	{
 	    ob_main.mouse_cursor = 1;
     
@@ -122,7 +122,7 @@ if (button_id == 100 || button_id == 102)
 	    ob_main.fade_red_delete = button_state;
 	}
 
-	if (ob_main.cursor_hide == false && mouse_x >= x && mouse_y >= y + 2 && mouse_x < x + sprite_width && mouse_y < y + sprite_height - 2)
+	if (ob_main.cursor_hide == false && (mouse_x * ob_main.option_state[opt_scaling]) >= x && mouse_y >= y + 2 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width && mouse_y < y + sprite_height - 2)
 	{
 	    switch (button_id)
 	    {
@@ -141,7 +141,7 @@ if (button_id == 100 || button_id == 102)
 
 
 //all other buttons
-if (mouse_x >= x && mouse_y >= y + 2 && mouse_x < x + sprite_width && mouse_y < y + sprite_height - 2 && ob_main.mouse_cursor == 0)
+if ((mouse_x * ob_main.option_state[opt_scaling]) >= x && mouse_y >= y + 2 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width && mouse_y < y + sprite_height - 2 && ob_main.mouse_cursor == 0)
 {
     ob_main.mouse_cursor = 1;
     
@@ -257,7 +257,7 @@ if (keyboard_check_pressed(vk_space) && !mouse_check_button(mb_left) && button_s
     }
 }
 
-if (ob_main.cursor_hide == false && mouse_x >= x && mouse_y >= y + 2 && mouse_x < x + sprite_width && mouse_y < y + sprite_height - 2)
+if (ob_main.cursor_hide == false && (mouse_x * ob_main.option_state[opt_scaling]) >= x && mouse_y >= y + 2 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width && mouse_y < y + sprite_height - 2)
 {
     if (instance_exists(ob_deckbuild))
     {

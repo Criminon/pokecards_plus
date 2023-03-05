@@ -22,7 +22,7 @@ if argument1=false {
 		case ref_glyph_berserk: return		"// BERSERK //\nWhen HP is 1/3 or less (or just 1, if hurt), base\nattack is doubled."; break;
 		case ref_glyph_adaptability: return "// ADAPTABILITY //\nType-advantage attacks deal 2 extra points\nof bonus damage."; break;
 		case ref_glyph_recovery: return		"// RECOVERY //\nRecovers 1 HP at the beginning of each active turn."; break;
-		case ref_glyph_rations: return		"// RATIONS //\nBerry cost is reduced by 1."; break;
+		case ref_glyph_rations: return		"// RATIONS //\nBerry cost is reduced by 1.\n(Will never be lower than 1)"; break;
 		case ref_glyph_picky: return		"// PICKY //\nCraves only one type of Berry."; break;
 		case ref_glyph_underdog: return		"// UNDERDOG //\nIncreases damage against higher HP foes."; break;
 		case ref_glyph_bless: return		"// BLESS //\nIncreases damage done by 1."; break;
@@ -41,6 +41,7 @@ if argument1=false {
 else {
 	switch (argument0) {
 		//case ref_glyph_picky: return 3; break;
+		case ref_glyph_rations: return 3; break;
 		case ref_glyph_wealth: return 3; break;
 		case ref_glyph_determination: return 3; break;
 		case ref_glyph_mist: return 3; break;

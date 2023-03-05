@@ -79,11 +79,11 @@ repeat (card_hand_total+1) { //sets card focus
 	if i<card_hand_total { //checks all cards in hand
 		var_card_id=card_hand[i];
 	}
-	else if position_meeting(mouse_x,mouse_y,ob_card) and instance_position(mouse_x,mouse_y,ob_card).card_face=true { //checks card where mouse is
-		var_card_id=instance_position(mouse_x,mouse_y,ob_card);
+	else if position_meeting((mouse_x * ob_main.option_state[opt_scaling]),mouse_y,ob_card) and instance_position((mouse_x * ob_main.option_state[opt_scaling]),mouse_y,ob_card).card_face=true { //checks card where mouse is
+		var_card_id=instance_position((mouse_x * ob_main.option_state[opt_scaling]),mouse_y,ob_card);
 	}
 	if var_card_id!=-1 {
-		if mouse_x>=var_card_id.x and mouse_y>=var_card_id.y and mouse_x<var_card_id.x+57 and mouse_y<var_card_id.y+80 and
+		if (mouse_x * ob_main.option_state[opt_scaling])>=var_card_id.x and mouse_y>=var_card_id.y and (mouse_x * ob_main.option_state[opt_scaling])<var_card_id.x+57 and mouse_y<var_card_id.y+80 and
 		var_card_id.card_face=true and (card_focus=-1 or var_card_id.depth<card_focus.depth) and var_card_id.x=var_card_id.potential_x and ob_main.cursor_hide=false {
 			card_focus=var_card_id;
 			if i<card_hand_total { card_focus_hand=i; }
@@ -118,11 +118,11 @@ if card_focus!=-1 {
 	if mouse_check_button(mb_left) and ob_main.cursor_hide=false and battler_turn=1 and card_focus.card_played=false { //hold focused card
 		if mouse_check_button_pressed(mb_left) { sc_playsound(sn_card,50,false,false); }
 		//
-		card_focus.potential_x=mouse_x-28;
+		card_focus.potential_x=(mouse_x * ob_main.option_state[opt_scaling])-28;
 		card_focus.potential_y=mouse_y-40;
 		card_hold=card_focus;
 	}
-	else if (mouse_x<card_focus.x or mouse_y<card_focus.y or mouse_x>=card_focus.x+57 or mouse_y>=card_focus.y+80) or ob_main.cursor_hide=true {
+	else if ((mouse_x * ob_main.option_state[opt_scaling])<card_focus.x or mouse_y<card_focus.y or (mouse_x * ob_main.option_state[opt_scaling])>=card_focus.x+57 or mouse_y>=card_focus.y+80) or ob_main.cursor_hide=true {
 		card_focus=-1;
 		card_focus_hand=-1;
 	}
@@ -146,8 +146,8 @@ if card_focus!=-1 { //click played card
 }
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if card_hold!=-1 and (!mouse_check_button(mb_left) or ob_main.cursor_hide=true) { //play held card
-	if position_meeting(mouse_x,mouse_y,ob_card_space) {
-		var var_cardspace_id=instance_position(mouse_x,mouse_y,ob_card_space), playing_requirements=false, var_consumed_berry;
+	if position_meeting((mouse_x * ob_main.option_state[opt_scaling]),mouse_y,ob_card_space) {
+		var var_cardspace_id=instance_position((mouse_x * ob_main.option_state[opt_scaling]),mouse_y,ob_card_space), playing_requirements=false, var_consumed_berry;
 		//
 		for (var i=0; i<=3; i++;) {
 			var_consumed_berry[i]=0;

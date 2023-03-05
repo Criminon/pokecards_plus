@@ -3,7 +3,7 @@
 
 
 
-if mouse_x>=(screen_main_x+(cam_w/2)-35) and mouse_y>= (screen_main_y+cam_h-50) and mouse_x<=(screen_main_x+(cam_w/2)+35) and mouse_y<=(screen_main_y+cam_h-25) && set = false {
+if (mouse_x * ob_main.option_state[opt_scaling])>=(screen_main_x+(cam_w/2)-35) and mouse_y>= (screen_main_y+cam_h-50) and (mouse_x * ob_main.option_state[opt_scaling])<=(screen_main_x+(cam_w/2)+35) and mouse_y<=(screen_main_y+cam_h-25) && set = false {
 	with (ob_main)
 		{
 		if mouse_check_button_pressed(mb_left){

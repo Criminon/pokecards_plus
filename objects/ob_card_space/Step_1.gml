@@ -116,7 +116,7 @@ if (instance_exists(ob_control))
         (space_slot >= 5 && space_slot <= 9 && ob_control.card_space_id[space_slot - 5].occupy_id != -1 &&
         sc_glyph_check(ob_control.card_space_id[space_slot - 5].occupy_id, ref_glyph_ruthless, true)))
     {
-        card_penalty_def += ob_control.card_space_id[space_slot].occupy_id.card_def;
+        card_penalty_def += 2;
     }
 }
 
