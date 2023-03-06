@@ -304,6 +304,7 @@ else if argument0=200 { //GYM 1: IAN (NORMAL/flying)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 428;
 			var form = 1000;
 			var lvl = 10;
@@ -326,6 +327,7 @@ else if argument0=201 { //GYM 2: CAMMIE (GRASS/ground/rock)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 460;
 			var form = 1000;
 			var lvl = 10;
@@ -348,6 +350,7 @@ else if argument0=202 { //GYM 3: WALKER (WATER/ice)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 362;
 			var form = 1000;
 			var lvl = 10;
@@ -371,6 +374,7 @@ else if argument0=203 { //GYM 4: MADISON (FIRE/steel)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 229;
 			var form = 1000;
 			var lvl = 10;
@@ -393,6 +397,7 @@ else if argument0=204 { //GYM 5: ZOE (ELECTRIC)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 310;
 			var form = 1000;
 			var lvl = 10;
@@ -416,6 +421,7 @@ else if argument0=205 { //GYM 6: VINCENT (FIGHTING/dark)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 448;
 			var form = 1000;
 			var lvl = 10;
@@ -440,6 +446,7 @@ else if argument0=206 { //GYM 7: PENNY (PSYCHIC/fairy/ghost)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 282;
 			var form = 1000;
 			var lvl = 10;
@@ -463,6 +470,7 @@ else if argument0=207 { //GYM 8: LAKE (GRASS/FIRE/WATER)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn1 = 254;
 			var pkmn2 = 257;
 			var pkmn3 = 260;
@@ -491,6 +499,7 @@ else if argument0=208 { //ELITE 1: EMILY (FIRE/dark, psychic/ghost)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 006;
 			var form = 1000;
 			var glyph_a = choose(ref_glyph_rush,ref_glyph_taunt);
@@ -515,6 +524,7 @@ else if argument0=209 { //ELITE 2: FINN (POISON/bug, ground/rock)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 094;
 			var form = 1000;
 			var glyph_a = choose(ref_glyph_rush,ref_glyph_taunt);
@@ -538,6 +548,7 @@ else if argument0=210 { //ELITE 3: DION (FLYING/fighting, grass)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 018;
 			var form = 1000;
 			var glyph_a = choose(ref_glyph_rush,ref_glyph_taunt);
@@ -562,6 +573,7 @@ else if argument0=211 { //ELITE 4: APRIL (DRAGON/ice, steel, water)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 		if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn = 373;
 			var form = 1000;
 			var glyph_a = choose(ref_glyph_rush,ref_glyph_taunt);
@@ -599,6 +611,7 @@ else if argument0=212 { //CHAMPION: DUNCAN (ALL)
 	for (var i=0; i<enemycard_maindeck_total; i++;) {
 			if ob_main.newgameplus = true
 		{
+			var glyphmax = 23;
 			var pkmn1 = 248;
 			var pkmn2 = 376;
 			var pkmn3 = 384;
@@ -638,6 +651,7 @@ else if argument0 = 213 { // Mewtwo
 	enemy_type_chance[17]=100; //dark
 	//
 		for (var i=0; i<enemycard_maindeck_total; i++;) {
+		var glyphmax = 23;
 		if i<1 { sc_enemy_deck_addcard(i,150,10,ref_glyph_command,ref_glyph_determination,ref_glyph_berserk,innate_max+1,-1); } //MEWTWO, LV 10 (IN MAX)
 		else if i<2 { sc_enemy_deck_addcard(i,2013,10,ref_glyph_command,ref_glyph_determination,ref_glyph_berserk,innate_max+1,-1); } //ARMORED MEWTWO, LV 10 (IN MAX)
 		else if i<3 { sc_enemy_deck_addcard(i,2016,10,ref_glyph_taunt,ref_glyph_lucky,irandom_range(1,glyphmax),innate_max+1,-1); } //CLONE BLASTOISE
