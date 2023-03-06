@@ -233,7 +233,7 @@ else if mouse_y>=screen_main_y+used_y-8 and mouse_y<screen_main_y+used_y+80 and 
 //
 if mouse_check_button(mb_left) and ob_main.cursor_hide=false and cam_w<(deck_build_stored_total*60) and hold_used_bar=false and
 ((mouse_y>=screen_main_y+stored_y+80 and mouse_y<screen_main_y+stored_y+88) or hold_stored_bar=true) {
-	var mouse_pos=(mouse_x * ob_main.option_state[opt_scaling])-screen_deck_x-8-4, mouse_pos_max=cam_w-16-10, stored_pos_max=cam_w-(deck_build_stored_total*60)-5;
+	var mouse_pos=mouse_x-screen_deck_x-8-4, mouse_pos_max=cam_w-16-10, stored_pos_max=cam_w-(deck_build_stored_total*60)-5;
 	var stored_x_percent=mouse_pos*100/mouse_pos_max;
 	stored_x=round(stored_x_percent*stored_pos_max/100)+4;
 	if stored_x>4 { stored_x=4; }
@@ -242,7 +242,7 @@ if mouse_check_button(mb_left) and ob_main.cursor_hide=false and cam_w<(deck_bui
 }
 else if mouse_check_button(mb_left) and ob_main.cursor_hide=false and cam_w<(deck_build_used_total*60) and hold_stored_bar=false and
 ((mouse_y>=screen_main_y+used_y-10 and mouse_y<screen_main_y+used_y-2) or hold_used_bar=true) {
-	var mouse_pos=(mouse_x * ob_main.option_state[opt_scaling])-screen_deck_x-8-4, mouse_pos_max=cam_w-16-10, used_pos_max=cam_w-(deck_build_used_total*60)-5;
+	var mouse_pos=mouse_x-screen_deck_x-8-4, mouse_pos_max=cam_w-16-10, used_pos_max=cam_w-(deck_build_used_total*60)-5;
 	var used_x_percent=mouse_pos*100/mouse_pos_max;
 	used_x=round(used_x_percent*used_pos_max/100)+4;
 	if used_x>4 { used_x=4; }
@@ -263,7 +263,7 @@ if cam_w<(deck_build_used_total*60) { //when moving last cards in list
 }
 else { used_x=4; }
 ///mass deleting cards
-if ((mouse_x * ob_main.option_state[opt_scaling])>=1477 and mouse_y>=166 and (mouse_x * ob_main.option_state[opt_scaling])<=1488 and mouse_y<=176) { ///Oran Berry (blue)
+if (mouse_x>=1477 and mouse_y>=166 and mouse_x<=1488 and mouse_y<=176) { ///Oran Berry (blue)
 	draw_set_halign(fa_left)
 	ob_main.mouse_cursor=1;
 	tooltip_lines = 2;
@@ -285,7 +285,7 @@ if ((mouse_x * ob_main.option_state[opt_scaling])>=1477 and mouse_y>=166 and (mo
 		}
 
 }
-else if ((mouse_x * ob_main.option_state[opt_scaling])>=1490 and mouse_y>=166 and (mouse_x * ob_main.option_state[opt_scaling])<=1501 and mouse_y<=176) { ///Leppa Berry (red)
+else if (mouse_x>=1490 and mouse_y>=166 and mouse_x<=1501 and mouse_y<=176) { ///Leppa Berry (red)
 	draw_set_halign(fa_left)
 	ob_main.mouse_cursor=1;
 	tooltip_lines = 2;
@@ -307,7 +307,7 @@ else if ((mouse_x * ob_main.option_state[opt_scaling])>=1490 and mouse_y>=166 an
 		}
 
 }
-else if ((mouse_x * ob_main.option_state[opt_scaling])>=1503 and mouse_y>=166 and (mouse_x * ob_main.option_state[opt_scaling])<=1514 and mouse_y<=176) { ///Lum Berry (green)
+else if (mouse_x>=1503 and mouse_y>=166 and mouse_x<=1514 and mouse_y<=176) { ///Lum Berry (green)
 	draw_set_halign(fa_left)
 	ob_main.mouse_cursor=1;
 	tooltip_lines = 2;
@@ -329,7 +329,7 @@ else if ((mouse_x * ob_main.option_state[opt_scaling])>=1503 and mouse_y>=166 an
 		}
 
 }
-else if ((mouse_x * ob_main.option_state[opt_scaling])>=1472 and mouse_y>=147 and (mouse_x * ob_main.option_state[opt_scaling])<=1518 and mouse_y<=178){
+else if (mouse_x>=1472 and mouse_y>=147 and mouse_x<=1518 and mouse_y<=178){
 	draw_set_halign(fa_left)
 	ob_main.mouse_cursor=1;
 	tooltip_lines = 3;

@@ -342,5 +342,5 @@ if textbox_string[textbox_current]!="" {
 draw_sprite_ext(sp_border_shading,0,camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]),1,1,0,c_white,option_state[opt_edge]/100);
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if cursor_hide=false { var mouse_alpha=1; } else { var mouse_alpha=0.5; }
-draw_sprite_general(sp_sheet,0,16*(mouse_cursor+1),16*0,16,16,(mouse_x * ob_main.option_state[opt_scaling])-5,mouse_y-5,1,1,0,c_white,c_white,c_white,c_white,mouse_alpha);
+draw_sprite_general(sp_sheet,0,16*(mouse_cursor+1),16*0,16,16,mouse_x-5,mouse_y-5,1,1,0,c_white,c_white,c_white,c_white,mouse_alpha);
 

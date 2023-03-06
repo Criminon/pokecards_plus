@@ -976,14 +976,14 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 		if event_kind[2][roadmap_area]=-1 {
 			event_button_x[i]=road_win_x+55-9+(104*i);
 			event_button_y[i]=road_win_y+35-9;
-			if i<2 and (mouse_x * ob_main.option_state[opt_scaling])>event_button_x[i] and mouse_y>event_button_y[i] and (mouse_x * ob_main.option_state[opt_scaling])<=event_button_x[i]+42 and mouse_y<=event_button_y[i]+42 and cursor_hide=false {
+			if i<2 and mouse_x>event_button_x[i] and mouse_y>event_button_y[i] and mouse_x<=event_button_x[i]+42 and mouse_y<=event_button_y[i]+42 and cursor_hide=false {
 				mouse_in_event=i;
 			}
 		}
 		else {
 			event_button_x[i]=road_win_x+36-9+(71*i);
 			event_button_y[i]=road_win_y+35-9;
-			if (mouse_x * ob_main.option_state[opt_scaling])>event_button_x[i] and mouse_y>event_button_y[i] and (mouse_x * ob_main.option_state[opt_scaling])<=event_button_x[i]+42 and mouse_y<=event_button_y[i]+42 and cursor_hide=false {
+			if mouse_x>event_button_x[i] and mouse_y>event_button_y[i] and mouse_x<=event_button_x[i]+42 and mouse_y<=event_button_y[i]+42 and cursor_hide=false {
 				mouse_in_event=i;
 			}
 		}
@@ -1003,7 +1003,7 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 	//
 	if area_zone>0 and //same conditions as draw
 	(((area_zone<area_zone_max-1 or newgameplus = true) and roadmap_area=roadmap_current_max-1) or ((area_zone=area_zone_max-1 or newgameplus = true) and roadmap_area>=roadmap_current_max-roadmap_league_max)) and
-	(mouse_x * ob_main.option_state[opt_scaling])>=fly_prev_x and mouse_y>=fly_prev_y and (mouse_x * ob_main.option_state[opt_scaling])<fly_prev_x+16 and mouse_y<fly_prev_y+16 and cursor_hide=false {
+	mouse_x>=fly_prev_x and mouse_y>=fly_prev_y and mouse_x<fly_prev_x+16 and mouse_y<fly_prev_y+16 and cursor_hide=false {
 		mouse_in_fly=0;
 		//
 		mouse_cursor=1;
@@ -1012,7 +1012,7 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 	}
 	else if (area_zone<area_zone_max-1 or newgameplus = true) and latest_zone>area_zone and //same conditions as draw
 	((area_zone<area_zone_max-1 and roadmap_area=roadmap_current_max-1) or ((area_zone=area_zone_max-1 or newgameplus = true) and roadmap_area>=roadmap_current_max-roadmap_league_max)) and
-	(mouse_x * ob_main.option_state[opt_scaling])>=fly_next_x and mouse_y>=fly_next_y and (mouse_x * ob_main.option_state[opt_scaling])<fly_next_x+16 and mouse_y<fly_next_y+16 and cursor_hide=false {
+	mouse_x>=fly_next_x and mouse_y>=fly_next_y and mouse_x<fly_next_x+16 and mouse_y<fly_next_y+16 and cursor_hide=false {
 		mouse_in_fly=1;
 		//
 		mouse_cursor=1;
@@ -1410,7 +1410,7 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 	}
 	if screen_x=screen_main_x and event_transition=-1 and event_transition_standby=-1 and screen_transition=-1 and cursor_hide=false and
 	(keyboard_check_pressed(vk_left) or keyboard_check_pressed(ord("A")) or
-	((mouse_x * ob_main.option_state[opt_scaling])>=screen_main_x+32-2 and mouse_y>=screen_main_y+126-2 and (mouse_x * ob_main.option_state[opt_scaling])<=screen_main_x+32+17 and mouse_y<=screen_main_y+126+17)) {
+	(mouse_x>=screen_main_x+32-2 and mouse_y>=screen_main_y+126-2 and mouse_x<=screen_main_x+32+17 and mouse_y<=screen_main_y+126+17)) {
 		menu_options_hover=true;
 		mouse_cursor=1;
 		if mouse_check_button_pressed(mb_left) or keyboard_check_pressed(vk_left) or keyboard_check_pressed(ord("A")) {
@@ -1436,7 +1436,7 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 	//
 	if screen_x=screen_main_x and ((event_transition=-1 and event_transition_standby=-1 and screen_transition=-1 and cursor_hide=false and
 	(keyboard_check_pressed(vk_right) or keyboard_check_pressed(ord("D")) or
-	((mouse_x * ob_main.option_state[opt_scaling])>=screen_main_x+cam_w-48-2 and mouse_y>=screen_main_y+126-2 and (mouse_x * ob_main.option_state[opt_scaling])<=screen_main_x+cam_w-48+17 and mouse_y<=screen_main_y+126+17))) or auto_deck_transition=true) {
+	(mouse_x>=screen_main_x+cam_w-48-2 and mouse_y>=screen_main_y+126-2 and mouse_x<=screen_main_x+cam_w-48+17 and mouse_y<=screen_main_y+126+17))) or auto_deck_transition=true) {
 		menu_deck_hover=true;
 		mouse_cursor=1;
 		if mouse_check_button_pressed(mb_left) or keyboard_check_pressed(vk_right) or keyboard_check_pressed(ord("D")) or auto_deck_transition=true {
@@ -1456,7 +1456,7 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 	//
 	if screen_x=screen_options_x and event_transition=-1 and event_transition_standby=-1 and screen_transition=-1 and cursor_hide=false and
 	(keyboard_check_pressed(vk_right) or keyboard_check_pressed(ord("D")) or
-	((mouse_x * ob_main.option_state[opt_scaling])>=screen_options_x+cam_w-32-2 and mouse_y>=screen_main_y+136-2 and (mouse_x * ob_main.option_state[opt_scaling])<=screen_options_x+cam_w-32+17 and mouse_y<=screen_main_y+136+17)) {
+	(mouse_x>=screen_options_x+cam_w-32-2 and mouse_y>=screen_main_y+136-2 and mouse_x<=screen_options_x+cam_w-32+17 and mouse_y<=screen_main_y+136+17)) {
 		menu_back_options_hover=true;
 		mouse_cursor=1;
 		if mouse_check_button_pressed(mb_left) or keyboard_check_pressed(vk_right) or keyboard_check_pressed(ord("D")) {
@@ -1481,7 +1481,7 @@ if !instance_exists(ob_control) and !instance_exists(ob_event) {
 	//
 	if screen_x=screen_deck_x and event_transition=-1 and event_transition_standby=-1 and screen_transition=-1 and cursor_hide=false and
 	(keyboard_check_pressed(vk_left) or keyboard_check_pressed(ord("A")) or
-	((mouse_x * ob_main.option_state[opt_scaling])>=screen_deck_x+16-2 and mouse_y>=screen_main_y+136-2 and (mouse_x * ob_main.option_state[opt_scaling])<=screen_deck_x+16+17 and mouse_y<=screen_main_y+136+17)) {
+	(mouse_x>=screen_deck_x+16-2 and mouse_y>=screen_main_y+136-2 and mouse_x<=screen_deck_x+16+17 and mouse_y<=screen_main_y+136+17)) {
 		menu_back_deck_hover=true;
 		mouse_cursor=1;
 		if mouse_check_button_pressed(mb_left) or keyboard_check_pressed(vk_left) or keyboard_check_pressed(ord("A")) {
@@ -1557,7 +1557,7 @@ if button_delete_data!=-1 {
 draw_set_font(fn_matchup);
 //
 
-if (mouse_x * ob_main.option_state[opt_scaling])>=(screen_main_x-86) and mouse_y>= (screen_main_y+25) and (mouse_x * ob_main.option_state[opt_scaling])<=(screen_main_x) and mouse_y<=(screen_main_y+40) {
+if mouse_x>=(screen_main_x-86) and mouse_y>= (screen_main_y+25) and mouse_x<=(screen_main_x) and mouse_y<=(screen_main_y+40) {
 
 	if mouse_check_button_pressed(mb_left){
 		sc_state_save();
@@ -1572,7 +1572,7 @@ if (mouse_x * ob_main.option_state[opt_scaling])>=(screen_main_x-86) and mouse_y
 
 var i=0;
 repeat (options_total) {
-	if (mouse_x * ob_main.option_state[opt_scaling])>=option_x[i] and mouse_y>=option_y[i]+2 and (mouse_x * ob_main.option_state[opt_scaling])<=option_x[i]+string_width(option_name[i] + option_state_text[i]) and mouse_y<=option_y[i]+10 and cursor_hide=false {
+	if mouse_x>=option_x[i] and mouse_y>=option_y[i]+2 and mouse_x<=option_x[i]+string_width(option_name[i] + option_state_text[i]) and mouse_y<=option_y[i]+10 and cursor_hide=false {
 		mouse_cursor=1;
 		option_focus[i]=true;
 		//
@@ -1809,8 +1809,8 @@ repeat (options_total) {
 //
 var i=0;
 repeat (colorsetup_total) {
-	if (mouse_x * ob_main.option_state[opt_scaling])>=colorsetup_r_x[i] and mouse_y>=colorsetup_y[i]+2 and
-	(mouse_x * ob_main.option_state[opt_scaling])<=colorsetup_r_x[i]+string_width("R " + string(colorsetup_r[i])) and mouse_y<=colorsetup_y[i]+10 and cursor_hide=false {
+	if mouse_x>=colorsetup_r_x[i] and mouse_y>=colorsetup_y[i]+2 and
+	mouse_x<=colorsetup_r_x[i]+string_width("R " + string(colorsetup_r[i])) and mouse_y<=colorsetup_y[i]+10 and cursor_hide=false {
 		if mouse_check_button_pressed(mb_left) or mouse_check_button_pressed(mb_right) or mouse_wheel_up() or mouse_wheel_down() { sc_playsound(sn_click,50,false,false); }
 		mouse_cursor=1;
 		colorsetup_focus_r[i]=true;
@@ -1819,8 +1819,8 @@ repeat (colorsetup_total) {
 	}
 	else { colorsetup_focus_r[i]=false; }
 	//
-	if (mouse_x * ob_main.option_state[opt_scaling])>=colorsetup_g_x[i] and mouse_y>=colorsetup_y[i]+2 and
-	(mouse_x * ob_main.option_state[opt_scaling])<=colorsetup_g_x[i]+string_width("G " + string(colorsetup_g[i])) and mouse_y<=colorsetup_y[i]+10 and cursor_hide=false {
+	if mouse_x>=colorsetup_g_x[i] and mouse_y>=colorsetup_y[i]+2 and
+	mouse_x<=colorsetup_g_x[i]+string_width("G " + string(colorsetup_g[i])) and mouse_y<=colorsetup_y[i]+10 and cursor_hide=false {
 		if mouse_check_button_pressed(mb_left) or mouse_check_button_pressed(mb_right) or mouse_wheel_up() or mouse_wheel_down() { sc_playsound(sn_click,50,false,false); }
 		mouse_cursor=1;
 		colorsetup_focus_g[i]=true;
@@ -1829,8 +1829,8 @@ repeat (colorsetup_total) {
 	}
 	else { colorsetup_focus_g[i]=false; }
 	//
-	if (mouse_x * ob_main.option_state[opt_scaling])>=colorsetup_b_x[i] and mouse_y>=colorsetup_y[i]+2 and
-	(mouse_x * ob_main.option_state[opt_scaling])<=colorsetup_b_x[i]+string_width("B " + string(colorsetup_b[i])) and mouse_y<=colorsetup_y[i]+10 and cursor_hide=false {
+	if mouse_x>=colorsetup_b_x[i] and mouse_y>=colorsetup_y[i]+2 and
+	mouse_x<=colorsetup_b_x[i]+string_width("B " + string(colorsetup_b[i])) and mouse_y<=colorsetup_y[i]+10 and cursor_hide=false {
 		if mouse_check_button_pressed(mb_left) or mouse_check_button_pressed(mb_right) or mouse_wheel_up() or mouse_wheel_down() { sc_playsound(sn_click,50,false,false); }
 		mouse_cursor=1;
 		colorsetup_focus_b[i]=true;

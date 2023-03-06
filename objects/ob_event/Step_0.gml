@@ -75,7 +75,7 @@ if (show_deck)
     if (mouse_check_button(mb_left) && ob_main.cursor_hide == false && cam_w < (card_event_inventory_total * 60) &&
         ((mouse_y >= screen_main_y + inventory_y + 80 && mouse_y < screen_main_y + inventory_y + 88) || hold_inventory_bar == true))
     {
-        var mouse_pos = (mouse_x * ob_main.option_state[opt_scaling]) - screen_main_x - 8 - 4;
+        var mouse_pos = mouse_x - screen_main_x - 8 - 4;
         var mouse_pos_max = cam_w - 16 - 10;
         var inventory_pos_max = cam_w - (card_event_inventory_total * 60) - 5;
         
@@ -94,7 +94,7 @@ if (show_deck)
     else if (mouse_check_button(mb_left) && ob_main.cursor_hide == false && cam_w < (card_event_total * 60) &&
         ((mouse_y >= screen_main_y + deck_y - 10 && mouse_y < screen_main_y + deck_y - 2) || hold_deck_bar == true))
     {
-        var mouse_pos = (mouse_x * ob_main.option_state[opt_scaling]) - screen_main_x - 8 - 4;
+        var mouse_pos = mouse_x - screen_main_x - 8 - 4;
         var mouse_pos_max = cam_w - 16 - 10;
         var deck_pos_max = cam_w - (card_event_total * 60) - 5;
         

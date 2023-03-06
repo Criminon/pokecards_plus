@@ -5,7 +5,7 @@ if (trash == true)
 
 if (instance_exists(ob_control) && ob_control.card_focus == -1 && ob_main.cursor_hide == false)
 {
-    if (berries_total > 0 && (mouse_x * ob_main.option_state[opt_scaling]) >= x + 4 && mouse_y >= y + 4 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width - 4 && mouse_y < y + sprite_height - 4)
+    if (berries_total > 0 && mouse_x >= x + 4 && mouse_y >= y + 4 && mouse_x < x + sprite_width - 4 && mouse_y < y + sprite_height - 4)
     {
         ob_control.tooltip_text = "Berries: ";
         if (berries_total_type[0] >= 1)
@@ -42,7 +42,7 @@ if (instance_exists(ob_control) && ob_control.card_focus == -1 && ob_main.cursor
 }
 else if (instance_exists(ob_event) && occupy_id == -1 && ob_main.cursor_hide == false)
 {
-    if ((mouse_x * ob_main.option_state[opt_scaling]) >= x + 4 && mouse_y >= y + 4 && (mouse_x * ob_main.option_state[opt_scaling]) < x + sprite_width - 4 && mouse_y < y + sprite_height - 4)
+    if (mouse_x >= x + 4 && mouse_y >= y + 4 && mouse_x < x + sprite_width - 4 && mouse_y < y + sprite_height - 4)
     {
         if (ob_event.event_kind == ref_event_levelup)
         {

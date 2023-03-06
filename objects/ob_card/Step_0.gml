@@ -203,10 +203,10 @@ card_atk=ceil(card_full_atk*base_atk_multiplier/base_atk_divisor)+(card_bonus_at
 
 //————————————————————————————————————————————————————————————————————————————————————————————————————
 if card_trash=false and card_enemy=false and reference_id=ob_control {
-	if (((mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<x+sprite_width and mouse_y<y+sprite_height) or
+	if ((mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height) or
 	((keyboard_check_pressed(vk_left) or keyboard_check_pressed(ord("A"))) and num_in_berrydeck>=0) or
 	((keyboard_check_pressed(vk_right) or keyboard_check_pressed(ord("D"))) and num_in_maindeck>=0)) {
-		if ((mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<x+sprite_width and mouse_y<y+sprite_height) {
+		if (mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height) {
 			if ob_control.card_hold=-1 { ob_main.mouse_cursor=1; }
 			else { ob_main.mouse_cursor=2; }
 		}
@@ -255,7 +255,7 @@ if card_trash=false and card_enemy=false and reference_id=ob_control {
 	}
 }
 //
-else if (((mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<x+sprite_width and mouse_y<y+sprite_height) or auto_turn_add=true) and reference_id=ob_event {
+else if ((mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height) or auto_turn_add=true) and reference_id=ob_event {
 	ob_main.mouse_cursor=1;
 	//
 	if ((mouse_check_button_pressed(mb_left) and ob_main.cursor_hide=false) or auto_turn_add=true) and y=potential_y and x=potential_x {
@@ -413,7 +413,7 @@ else if (((mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (m
 	auto_turn_add=false;
 }
 //
-else if ((mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<x+sprite_width and mouse_y<y+sprite_height and reference_id=ob_deckbuild) or massdel = true {
+else if (mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height and reference_id=ob_deckbuild) or massdel = true {
 	ob_main.mouse_cursor=1;
 	var dupemax = 100;
 	if card_cat=0 {
@@ -585,10 +585,10 @@ if ((reference_id=ob_control and ob_control.card_focus=id) or reference_id=ob_ev
 		
 	var heartwidth = ((card_innate-1)*2);
 	
-	if ((mouse_x * ob_main.option_state[opt_scaling])>=x+2 and mouse_y>=y+2 and (mouse_x * ob_main.option_state[opt_scaling])<=x+13 and mouse_y<=y+12) or
-	(card_type_b>=0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+2 and mouse_y>=y+12 and (mouse_x * ob_main.option_state[opt_scaling])<=x+13 and mouse_y<=y+22) {
-		if card_type_b>=0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+2 and mouse_y>=y+12 and (mouse_x * ob_main.option_state[opt_scaling])<=x+13 and mouse_y<=y+22 { var switch_var=card_type_b; }
-		else if (mouse_x * ob_main.option_state[opt_scaling])>=x+2 and mouse_y>=y+2 and (mouse_x * ob_main.option_state[opt_scaling])<=x+13 and mouse_y<=y+12 { var switch_var=card_type_a; }
+	if (mouse_x>=x+2 and mouse_y>=y+2 and mouse_x<=x+13 and mouse_y<=y+12) or
+	(card_type_b>=0 and mouse_x>=x+2 and mouse_y>=y+12 and mouse_x<=x+13 and mouse_y<=y+22) {
+		if card_type_b>=0 and mouse_x>=x+2 and mouse_y>=y+12 and mouse_x<=x+13 and mouse_y<=y+22 { var switch_var=card_type_b; }
+		else if mouse_x>=x+2 and mouse_y>=y+2 and mouse_x<=x+13 and mouse_y<=y+12 { var switch_var=card_type_a; }
 		switch (switch_var) {
 			case 00: reference_id.tooltip_text="Normal - Oran Berry"; break;
 			case 01: reference_id.tooltip_text="Grass - Lum Berry"; break;
@@ -616,16 +616,16 @@ if ((reference_id=ob_control and ob_control.card_focus=id) or reference_id=ob_ev
 		}
 		reference_id.tooltip_lines=1;
 	}
-	else if (card_glyph_a>=0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+43 and mouse_y>=y+2 and (mouse_x * ob_main.option_state[opt_scaling])<=x+54 and mouse_y<=y+12) or
-	(card_glyph_b>=0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+43 and mouse_y>=y+12 and (mouse_x * ob_main.option_state[opt_scaling])<=x+54 and mouse_y<=y+22) or
-	(card_glyph_c>=0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+43 and mouse_y>=y+22 and (mouse_x * ob_main.option_state[opt_scaling])<=x+54 and mouse_y<=y+32) {
-		if card_glyph_c>=0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+43 and mouse_y>=y+22 and (mouse_x * ob_main.option_state[opt_scaling])<=x+54 and mouse_y<=y+32 { var switch_var=card_glyph_c; }
-		else if card_glyph_b>=0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+43 and mouse_y>=y+12 and (mouse_x * ob_main.option_state[opt_scaling])<=x+54 and mouse_y<=y+22 { var switch_var=card_glyph_b; }
-		else if card_glyph_a>=0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+43 and mouse_y>=y+2 and (mouse_x * ob_main.option_state[opt_scaling])<=x+54 and mouse_y<=y+12 { var switch_var=card_glyph_a; }
+	else if (card_glyph_a>=0 and mouse_x>=x+43 and mouse_y>=y+2 and mouse_x<=x+54 and mouse_y<=y+12) or
+	(card_glyph_b>=0 and mouse_x>=x+43 and mouse_y>=y+12 and mouse_x<=x+54 and mouse_y<=y+22) or
+	(card_glyph_c>=0 and mouse_x>=x+43 and mouse_y>=y+22 and mouse_x<=x+54 and mouse_y<=y+32) {
+		if card_glyph_c>=0 and mouse_x>=x+43 and mouse_y>=y+22 and mouse_x<=x+54 and mouse_y<=y+32 { var switch_var=card_glyph_c; }
+		else if card_glyph_b>=0 and mouse_x>=x+43 and mouse_y>=y+12 and mouse_x<=x+54 and mouse_y<=y+22 { var switch_var=card_glyph_b; }
+		else if card_glyph_a>=0 and mouse_x>=x+43 and mouse_y>=y+2 and mouse_x<=x+54 and mouse_y<=y+12 { var switch_var=card_glyph_a; }
 		reference_id.tooltip_text=sc_glyph_text(switch_var,false);
 		reference_id.tooltip_lines=sc_glyph_text(switch_var,true);
 	}
-	else if card_cost_total>0 and (mouse_x * ob_main.option_state[opt_scaling])>=x+3 and mouse_y>=y+35 and (mouse_x * ob_main.option_state[opt_scaling])<=x+2+(4*card_cost_total) and mouse_y<=y+38 {
+	else if card_cost_total>0 and mouse_x>=x+3 and mouse_y>=y+35 and mouse_x<=x+2+(4*card_cost_total) and mouse_y<=y+38 {
 		reference_id.tooltip_text="Cost: ";
 		if card_cost_total_type[0]>=1 {
 			reference_id.tooltip_text=reference_id.tooltip_text + string(card_cost_total_type[0]) + "x Oran";
@@ -645,61 +645,61 @@ if ((reference_id=ob_control and ob_control.card_focus=id) or reference_id=ob_ev
 		reference_id.tooltip_text=reference_id.tooltip_text + ".";
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=((x+29)-heartwidth) and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<=((x+27)+heartwidth) and mouse_y<=y+5 && card_innate > 0{
+	else if mouse_x>=((x+29)-heartwidth) and mouse_y>=y and mouse_x<=((x+27)+heartwidth) and mouse_y<=y+5 && card_innate > 0{
 		reference_id.tooltip_text="Hearts: " + string(card_innate-1);
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=((x+29)+heartwidth) and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<=((x+27)-heartwidth) and mouse_y<=y+5 && card_innate = 0{
+	else if mouse_x>=((x+29)+heartwidth) and mouse_y>=y and mouse_x<=((x+27)-heartwidth) and mouse_y<=y+5 && card_innate = 0{
 		reference_id.tooltip_text="Weakened";
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=((x+27)+heartwidth) and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<=((x+29)-heartwidth) and mouse_y<=y+5 && card_innate = -1{
+	else if mouse_x>=((x+27)+heartwidth) and mouse_y>=y and mouse_x<=((x+29)-heartwidth) and mouse_y<=y+5 && card_innate = -1{
 		reference_id.tooltip_text="Exhausted";
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x+25 and mouse_y>=y+33 and (mouse_x * ob_main.option_state[opt_scaling])<=x+32 and mouse_y<=y+37 and card_shiny = true {
+	else if mouse_x>=x+25 and mouse_y>=y+33 and mouse_x<=x+32 and mouse_y<=y+37 and card_shiny = true {
 		reference_id.tooltip_text="Shiny!";
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x+5 and mouse_y>=y+5 and (mouse_x * ob_main.option_state[opt_scaling])<=x+51 and mouse_y<=y+36 and card_holo = true {
+	else if mouse_x>=x+5 and mouse_y>=y+5 and mouse_x<=x+51 and mouse_y<=y+36 and card_holo = true {
 		reference_id.tooltip_text="Holofoil!";
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x+25 and mouse_y>=y+72 and (mouse_x * ob_main.option_state[opt_scaling])<=x+32 and mouse_y<=y+76 and card_delta = true {
+	else if mouse_x>=x+25 and mouse_y>=y+72 and mouse_x<=x+32 and mouse_y<=y+76 and card_delta = true {
 		reference_id.tooltip_text="Delta Species!";
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<=x+60 and mouse_y<=y+79 and card_secret = true && dupe > 0{
+	else if mouse_x>=x and mouse_y>=y and mouse_x<=x+60 and mouse_y<=y+79 and card_secret = true && dupe > 0{
 		reference_id.tooltip_text="Only 1 Secret per deck.";
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<=x+60 and mouse_y<=y+79 and dupe > 2{
+	else if mouse_x>=x and mouse_y>=y and mouse_x<=x+60 and mouse_y<=y+79 and dupe > 2{
 		reference_id.tooltip_text="Only 2 species duplicates per deck.";
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x+5 and mouse_y>=y+69 and (mouse_x * ob_main.option_state[opt_scaling])<=x+13 and mouse_y<=y+76 && card_atk > card_full_atk{
+	else if mouse_x>=x+5 and mouse_y>=y+69 and mouse_x<=x+13 and mouse_y<=y+76 && card_atk > card_full_atk{
 		reference_id.tooltip_text="ATK: " + string(card_full_atk) + " + " + string(card_atk-card_full_atk);
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x+5 and mouse_y>=y+69 and (mouse_x * ob_main.option_state[opt_scaling])<=x+13 and mouse_y<=y+76 && card_atk < card_full_atk{
+	else if mouse_x>=x+5 and mouse_y>=y+69 and mouse_x<=x+13 and mouse_y<=y+76 && card_atk < card_full_atk{
 	reference_id.tooltip_text="ATK: " + string(card_full_atk) + " - " + string(card_full_atk-card_atk);
 	reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x+44 and mouse_y>=y+69 and (mouse_x * ob_main.option_state[opt_scaling])<=x+60 and mouse_y<=y+76 && card_def > card_full_def{ // 
+	else if mouse_x>=x+44 and mouse_y>=y+69 and mouse_x<=x+60 and mouse_y<=y+76 && card_def > card_full_def{ // 
 		reference_id.tooltip_text="DEF: " + string(card_full_def) + " + " + string(card_def-card_full_def);
 		reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x+44 and mouse_y>=y+69 and (mouse_x * ob_main.option_state[opt_scaling])<=x+60 and mouse_y<=y+76 && card_def < card_full_def{
+	else if mouse_x>=x+44 and mouse_y>=y+69 and mouse_x<=x+60 and mouse_y<=y+76 && card_def < card_full_def{
 	reference_id.tooltip_text="DEF: " + string(card_full_def) + " - " + string(card_full_def-card_def);
 	reference_id.tooltip_lines=1;
 	}
-	else if (mouse_x * ob_main.option_state[opt_scaling])>=x+25 and mouse_y>=y+63 and (mouse_x * ob_main.option_state[opt_scaling])<=x+30 and mouse_y<=y+71 && instance_exists(ob_control){
+	else if mouse_x>=x+25 and mouse_y>=y+63 and mouse_x<=x+30 and mouse_y<=y+71 && instance_exists(ob_control){
 	reference_id.tooltip_text="HP: " + string(card_hp) + "/" + string(card_full_hp); 
 	reference_id.tooltip_lines=1;
 	}
 }
 else if reference_id=ob_deckbuild and card_cat=1 and ob_main.cursor_hide=false {
-	if (mouse_x * ob_main.option_state[opt_scaling])>=x and mouse_y>=y and (mouse_x * ob_main.option_state[opt_scaling])<x+sprite_width and mouse_y<y+sprite_height {
+	if mouse_x>=x and mouse_y>=y and mouse_x<x+sprite_width and mouse_y<y+sprite_height {
 		if card_id=3003 { //enigma berries
 			reference_id.tooltip_text="Can be used as any Berry.\nTotal amount cannot exceed half of Berry Deck.";
 			reference_id.tooltip_lines=2;
